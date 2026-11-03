@@ -64,7 +64,7 @@ Two phases share the same embedding model and vector store. Indexing is a one-sh
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/<your-username>/simple-rag.git
+git clone https://github.com/<your-username>/RAG-Project.git
 cd simple-rag
 python3 -m venv .venv
 source .venv/bin/activate
