@@ -1,0 +1,235 @@
+{
+  "version": "1.0",
+  "_meta": {
+    "description": "Manually annotated ground truth for RAG retrieval evaluation.",
+    "annotation_strategy": "Page-based: a retrieved chunk is considered relevant if its (source, page) appears in relevant_pages. Optional expected_keywords are used for an additional substring precision check.",
+    "instructions": "Page numbers were verified against the indexed corpus by running each in-corpus query through the retriever (k=5, max_distance=2.0) and adjusted based on which pages the retriever surfaces with high relevance, cross-checked with knowledge of paper section structure. Pages are 1-indexed (matches loader.py output).",
+    "counts": {
+      "total": 16,
+      "in_corpus": 13,
+      "trap": 3,
+      "by_type": {
+        "definitional": 4,
+        "factual": 3,
+        "comparative": 2,
+        "multi_hop": 2,
+        "procedural": 2,
+        "trap": 3
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "question": "What is multi-head attention?",
+      "type": "definitional",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 5}
+        ],
+        "expected_keywords": ["multi-head", "parallel", "subspaces"]
+      },
+      "expected_answer_summary": "A mechanism allowing the model to jointly attend to information from different representation subspaces at different positions, by running attention in parallel over h heads and concatenating the outputs."
+    },
+    {
+      "id": "q02",
+      "question": "What is BERT?",
+      "type": "definitional",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "bert.pdf", "page": 1},
+          {"source": "bert.pdf", "page": 3}
+        ],
+        "expected_keywords": ["bidirectional", "transformer", "pre-training"]
+      },
+      "expected_answer_summary": "BERT (Bidirectional Encoder Representations from Transformers) is a pre-trained language model that learns deep bidirectional representations by jointly conditioning on both left and right context using a Transformer encoder."
+    },
+    {
+      "id": "q03",
+      "question": "What is retrieval-augmented generation?",
+      "type": "definitional",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "rag.pdf", "page": 1},
+          {"source": "rag.pdf", "page": 2}
+        ],
+        "expected_keywords": ["retrieval", "generation", "knowledge"]
+      },
+      "expected_answer_summary": "A hybrid model that combines a parametric memory (a pre-trained seq2seq model) with a non-parametric memory (a dense vector index of Wikipedia accessed via a learned retriever), enabling more accurate and grounded generation for knowledge-intensive tasks."
+    },
+    {
+      "id": "q04",
+      "question": "What is positional encoding?",
+      "type": "definitional",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 6}
+        ],
+        "expected_keywords": ["positional encoding", "sine", "cosine"]
+      },
+      "expected_answer_summary": "A way to inject information about the position of tokens into a Transformer (which is otherwise permutation-invariant). The original paper uses fixed sinusoidal functions of different frequencies for each dimension."
+    },
+    {
+      "id": "q05",
+      "question": "How many attention heads does the base Transformer model use?",
+      "type": "factual",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 5}
+        ],
+        "expected_keywords": ["h = 8", "8 parallel attention"]
+      },
+      "expected_answer_summary": "The base Transformer uses h = 8 parallel attention heads, with d_k = d_v = d_model / h = 64."
+    },
+    {
+      "id": "q06",
+      "question": "How many parameters does BERT-base have?",
+      "type": "factual",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "bert.pdf", "page": 3}
+        ],
+        "expected_keywords": ["110M", "BERT_BASE"]
+      },
+      "expected_answer_summary": "BERT-base has 110M parameters: 12 transformer layers, hidden size 768, and 12 self-attention heads."
+    },
+    {
+      "id": "q07",
+      "question": "What is the model dimension d_model used in the base Transformer?",
+      "type": "factual",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 3},
+          {"source": "attention.pdf", "page": 5},
+          {"source": "attention.pdf", "page": 9}
+        ],
+        "expected_keywords": ["d_model = 512", "512"]
+      },
+      "expected_answer_summary": "The base Transformer uses d_model = 512 for token embeddings and the output of every sub-layer."
+    },
+    {
+      "id": "q08",
+      "question": "How does BERT differ from previous left-to-right language models like GPT?",
+      "type": "comparative",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "bert.pdf", "page": 1},
+          {"source": "bert.pdf", "page": 13},
+          {"source": "bert.pdf", "page": 14}
+        ],
+        "expected_keywords": ["bidirectional", "left-to-right", "unidirectional"]
+      },
+      "expected_answer_summary": "GPT is a unidirectional (left-to-right) language model where each token can only attend to previous tokens. BERT is bidirectional — it conditions on both left and right context jointly via masked language modeling, allowing richer representations."
+    },
+    {
+      "id": "q09",
+      "question": "What is the difference between scaled dot-product attention and additive attention?",
+      "type": "comparative",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 4}
+        ],
+        "expected_keywords": ["dot-product", "additive", "faster"]
+      },
+      "expected_answer_summary": "Both compute compatibility between queries and keys but differ in formulation. Additive attention uses a feed-forward network with a single hidden layer, while dot-product attention is a simple dot product. Dot-product is faster and more space-efficient in practice; the paper scales by 1/sqrt(d_k) to counter large magnitudes for large d_k."
+    },
+    {
+      "id": "q10",
+      "question": "What pre-training objectives does BERT use, and what does each one optimize?",
+      "type": "multi_hop",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "bert.pdf", "page": 4},
+          {"source": "bert.pdf", "page": 5}
+        ],
+        "expected_keywords": ["masked language model", "next sentence prediction", "MLM", "NSP"]
+      },
+      "expected_answer_summary": "BERT uses two unsupervised objectives during pre-training: (1) Masked Language Model (MLM) — randomly masks 15% of input tokens and predicts them, allowing the model to fuse left and right context; (2) Next Sentence Prediction (NSP) — given two sentences A and B, predict whether B is the actual next sentence after A, useful for downstream tasks like QA and NLI that depend on sentence relationships."
+    },
+    {
+      "id": "q11",
+      "question": "What is the role of the encoder and decoder in the original Transformer architecture?",
+      "type": "multi_hop",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 2},
+          {"source": "attention.pdf", "page": 3}
+        ],
+        "expected_keywords": ["encoder", "decoder", "stack"]
+      },
+      "expected_answer_summary": "The encoder maps an input sequence to a sequence of continuous representations using N=6 stacked layers of self-attention and feed-forward sub-layers. The decoder generates the output sequence one token at a time, autoregressively, using N=6 layers that include masked self-attention (preventing attention to future positions) and cross-attention over the encoder's output."
+    },
+    {
+      "id": "q12",
+      "question": "How is positional encoding computed in the Transformer?",
+      "type": "procedural",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "attention.pdf", "page": 6}
+        ],
+        "expected_keywords": ["sin", "cos", "PE(pos"]
+      },
+      "expected_answer_summary": "Positional encoding uses sinusoidal functions of different frequencies. For position pos and dimension i: PE(pos, 2i) = sin(pos / 10000^(2i/d_model)) and PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model)). These are added to the token embeddings before the first layer."
+    },
+    {
+      "id": "q13",
+      "question": "How does retrieval-augmented generation combine retrieval with generation at inference time?",
+      "type": "procedural",
+      "in_corpus": true,
+      "ground_truth": {
+        "relevant_pages": [
+          {"source": "rag.pdf", "page": 1},
+          {"source": "rag.pdf", "page": 2},
+          {"source": "rag.pdf", "page": 3}
+        ],
+        "expected_keywords": ["retriever", "generator", "marginalize"]
+      },
+      "expected_answer_summary": "Given a query, a dense retriever (DPR) returns the top-K relevant passages from a Wikipedia index. The generator (BART) then conditions on the query and each retrieved passage to produce output tokens, marginalizing over passages — either at the sequence level (RAG-Sequence) or per token (RAG-Token)."
+    },
+    {
+      "id": "q14",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "type": "trap",
+      "in_corpus": false,
+      "ground_truth": {
+        "relevant_pages": [],
+        "expected_keywords": []
+      },
+      "expected_answer_summary": null
+    },
+    {
+      "id": "q15",
+      "question": "What is the recipe for traditional Polish bigos?",
+      "type": "trap",
+      "in_corpus": false,
+      "ground_truth": {
+        "relevant_pages": [],
+        "expected_keywords": []
+      },
+      "expected_answer_summary": null
+    },
+    {
+      "id": "q16",
+      "question": "What was the population of Tokyo in 2024?",
+      "type": "trap",
+      "in_corpus": false,
+      "ground_truth": {
+        "relevant_pages": [],
+        "expected_keywords": []
+      },
+      "expected_answer_summary": null
+    }
+  ]
+}

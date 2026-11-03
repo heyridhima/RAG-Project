@@ -1,0 +1,6 @@
+chromadb
+anthropic
+pypdf
+python-dotenv
+sentence-transformers
+rich

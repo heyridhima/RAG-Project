@@ -1,0 +1,762 @@
+{
+  "per_question": [
+    {
+      "id": "q01",
+      "question": "What is multi-head attention?",
+      "type": "definitional",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:5:2",
+          "text": "that of single-head attention with full dimensionality.\n3.2.3 Applications of Attention in our Model\nThe Transformer uses multi-head attention in three different ways:\n\u2022 In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder. This allows every\nposition in the decoder to attend over all positions in the input sequence. This mimics the",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 2,
+          "distance": 0.37694859504699707
+        },
+        {
+          "id": "attention.pdf:5:0",
+          "text": "output values. These are concatenated and once again projected, resulting in the final values, as\ndepicted in Figure 2.\nMulti-head attention allows the model to jointly attend to information from different representation\nsubspaces at different positions. With a single attention head, averaging inhibits this.\nMultiHead(Q, K, V ) = Concat(head 1, ..., headh)W O\nwhere headi = Attention(QW Q\ni , KW K\ni , V W V\ni )\nWhere the projections are parameter matricesW Q\ni \u2208 Rdmodel\u00d7dk, W K",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 0,
+          "distance": 0.3864799737930298
+        },
+        {
+          "id": "attention.pdf:2:8",
+          "text": "n-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the sequence. Self-attention has been\nused successfully in a variety of tasks including reading comprehension, abstractive summarization,\ntextual entailment and learning task-independent sentence representations [4, 27, 28, 22].",
+          "source": "attention.pdf",
+          "page": 2,
+          "chunk_index": 8,
+          "distance": 0.3880385160446167
+        },
+        {
+          "id": "attention.pdf:4:0",
+          "text": "Scaled Dot-Product Attention\n Multi-Head Attention\nFigure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several\nattention layers running in parallel.\nof the values, where the weight assigned to each value is computed by a compatibility function of the\nquery with the corresponding key.\n3.2.1 Scaled Dot-Product Attention\nWe call our particular attention \"Scaled Dot-Product Attention\" (Figure 2). The input consists of",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 0,
+          "distance": 0.44144636392593384
+        },
+        {
+          "id": "attention.pdf:14:1",
+          "text": "nion\n.\n<EOS>\n<pad>\nThe\nLaw\nwill\nnever\nbe\nperfect\n,\nbut\nits\napplication\nshould\nbe\njust\n-\nthis\nis\nwhat\nwe\nare\nmissing\n,\nin\nmy\nopinion\n.\n<EOS>\n<pad>\nFigure 4: Two attention heads, also in layer 5 of 6, apparently involved in anaphora resolution. Top:\nFull attentions for head 5. Bottom: Isolated attentions from just the word \u2018its\u2019 for attention heads 5\nand 6. Note that the attentions are very sharp for this word.\n14",
+          "source": "attention.pdf",
+          "page": 14,
+          "chunk_index": 1,
+          "distance": 0.4694443941116333
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "question": "What is BERT?",
+      "type": "definitional",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "raw_retrieved": [
+        {
+          "id": "bert.pdf:16:6",
+          "text": " table,\nMASK means that we replace the target token with\nthe [MASK] symbol for MLM; S AME means that\nwe keep the target token as is; R ND means that\nwe replace the target token with another random\ntoken.\nThe numbers in the left part of the table repre-\nsent the probabilities of the speci\ufb01c strategies used\nduring MLM pre-training (BERT uses 80%, 10%,\n10%). The right part of the paper represents the\nDev set results. For the feature-based approach,\nwe concatenate the last 4 layers of BERT as the",
+          "source": "bert.pdf",
+          "page": 16,
+          "chunk_index": 6,
+          "distance": 0.3950269818305969
+        },
+        {
+          "id": "bert.pdf:3:4",
+          "text": "is to \ufb01ne-tune models pre-trained with Ima-\ngeNet (Deng et al., 2009; Yosinski et al., 2014).\n3 BERT\nWe introduce BERT and its detailed implementa-\ntion in this section. There are two steps in our\nframework: pre-training and \ufb01ne-tuning. Dur-\ning pre-training, the model is trained on unlabeled\ndata over different pre-training tasks. For \ufb01ne-\ntuning, the BERT model is \ufb01rst initialized with\nthe pre-trained parameters, and all of the param-\neters are \ufb01ne-tuned using labeled data from the",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 4,
+          "distance": 0.43745654821395874
+        },
+        {
+          "id": "bert.pdf:1:2",
+          "text": " a wide\nrange of tasks, such as question answering and\nlanguage inference, without substantial task-\nspeci\ufb01c architecture modi\ufb01cations.\nBERT is conceptually simple and empirically\npowerful. It obtains new state-of-the-art re-\nsults on eleven natural language processing\ntasks, including pushing the GLUE score to\n80.5% (7.7% point absolute improvement),\nMultiNLI accuracy to 86.7% (4.6% absolute\nimprovement), SQuAD v1.1 question answer-\ning Test F1 to 93.2 (1.5 point absolute im-",
+          "source": "bert.pdf",
+          "page": 1,
+          "chunk_index": 2,
+          "distance": 0.44794124364852905
+        },
+        {
+          "id": "bert.pdf:6:5",
+          "text": "l\nin terms of model architecture apart from the at-\ntention masking. For the largest and most widely\nreported GLUE task, MNLI, BERT obtains a 4.6%\nabsolute accuracy improvement. On the of\ufb01cial\nGLUE leaderboard10, BERTLARGE obtains a score\nof 80.5, compared to OpenAI GPT, which obtains\n72.8 as of the date of writing.\nWe \ufb01nd that BERT LARGE signi\ufb01cantly outper-\nforms BERTBASE across all tasks, especially those\nwith very little training data. The effect of model",
+          "source": "bert.pdf",
+          "page": 6,
+          "chunk_index": 5,
+          "distance": 0.46780914068222046
+        },
+        {
+          "id": "bert.pdf:13:3",
+          "text": "\nhe bought a gallon [MASK] milk [SEP]\nLabel = IsNext\nInput = [CLS] the man [MASK] to the store [SEP]\npenguin [MASK] are flight ##less birds [SEP]\nLabel = NotNext\nA.2 Pre-training Procedure\nTo generate each training input sequence, we sam-\nple two spans of text from the corpus, which we\nrefer to as \u201csentences\u201d even though they are typ-\nically much longer than single sentences (but can\nbe shorter also). The \ufb01rst sentence receives the A\nembedding and the second receives the B embed-",
+          "source": "bert.pdf",
+          "page": 13,
+          "chunk_index": 3,
+          "distance": 0.47050076723098755
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "question": "What is retrieval-augmented generation?",
+      "type": "definitional",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.5,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "rag.pdf:1:2",
+          "text": "eir performance\nlags behind task-speci\ufb01c architectures. Additionally, providing provenance for their\ndecisions and updating their world knowledge remain open research problems. Pre-\ntrained models with a differentiable access mechanism to explicit non-parametric\nmemory have so far been only investigated for extractive downstream tasks. We\nexplore a general-purpose \ufb01ne-tuning recipe for retrieval-augmented generation\n(RAG) \u2014 models which combine pre-trained parametric and non-parametric mem-",
+          "source": "rag.pdf",
+          "page": 1,
+          "chunk_index": 2,
+          "distance": 0.4035467505455017
+        },
+        {
+          "id": "rag.pdf:9:2",
+          "text": "\ufb01ed\narchitecture, by learning a retrieval module to augment pre-trained, generative language models.\nLearned Retrieval There is signi\ufb01cant work on learning to retrieve documents in information\nretrieval, more recently with pre-trained, neural language models [ 44, 26] similar to ours. Some\nwork optimizes the retrieval module to aid in a speci\ufb01c, downstream task such as question answering,\nusing search [46], reinforcement learning [6, 63, 62], or a latent variable approach [31, 20] as in our",
+          "source": "rag.pdf",
+          "page": 9,
+          "chunk_index": 2,
+          "distance": 0.42444050312042236
+        },
+        {
+          "id": "rag.pdf:9:9",
+          "text": "rametric\nmemory. We showed that our RAG models obtain state of the art results on open-domain QA. We\nfound that people prefer RAG\u2019s generation over purely parametric BART, \ufb01nding RAG more factual\nand speci\ufb01c. We conducted an thorough investigation of the learned retrieval component, validating\nits effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model",
+          "source": "rag.pdf",
+          "page": 9,
+          "chunk_index": 9,
+          "distance": 0.4431058168411255
+        },
+        {
+          "id": "rag.pdf:1:0",
+          "text": "Retrieval-Augmented Generation for\nKnowledge-Intensive NLP Tasks\nPatrick Lewis\u2020\u2021, Ethan Perez\u22c6,\nAleksandra Piktus\u2020, Fabio Petroni\u2020, Vladimir Karpukhin\u2020, Naman Goyal\u2020, Heinrich K\u00fcttler\u2020,\nMike Lewis\u2020, Wen-tau Yih\u2020, Tim Rockt\u00e4schel\u2020\u2021, Sebastian Riedel\u2020\u2021, Douwe Kiela\u2020\n\u2020Facebook AI Research;\u2021University College London;\u22c6New York University;\nplewis@fb.com\nAbstract\nLarge pre-trained language models have been shown to store factual knowledge",
+          "source": "rag.pdf",
+          "page": 1,
+          "chunk_index": 0,
+          "distance": 0.4501457214355469
+        },
+        {
+          "id": "rag.pdf:12:0",
+          "text": "[20] Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Ming-Wei Chang. REALM:\nRetrieval-augmented language model pre-training. ArXiv, abs/2002.08909, 2020. URL https:\n//arxiv.org/abs/2002.08909.\n[21] Tatsunori B Hashimoto, Kelvin Guu, Yonatan Oren, and Percy S Liang. A\nretrieve-and-edit framework for predicting structured outputs. In S. Bengio,\nH. Wallach, H. Larochelle, K. Grauman, N. Cesa-Bianchi, and R. Garnett, ed-",
+          "source": "rag.pdf",
+          "page": 12,
+          "chunk_index": 0,
+          "distance": 0.4585414528846741
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "question": "What is positional encoding?",
+      "type": "definitional",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:5:3",
+          "text": "ws every\nposition in the decoder to attend over all positions in the input sequence. This mimics the\ntypical encoder-decoder attention mechanisms in sequence-to-sequence models such as\n[38, 2, 9].\n\u2022 The encoder contains self-attention layers. In a self-attention layer all of the keys, values\nand queries come from the same place, in this case, the output of the previous layer in the\nencoder. Each position in the encoder can attend to all positions in the previous layer of the\nencoder.",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 3,
+          "distance": 0.4575406312942505
+        },
+        {
+          "id": "attention.pdf:6:2",
+          "text": "he\ntokens in the sequence. To this end, we add \"positional encodings\" to the input embeddings at the\nbottoms of the encoder and decoder stacks. The positional encodings have the same dimension dmodel\nas the embeddings, so that the two can be summed. There are many choices of positional encodings,\nlearned and fixed [9].\nIn this work, we use sine and cosine functions of different frequencies:\nP E(pos,2i) = sin(pos/100002i/dmodel)\nP E(pos,2i+1) = cos(pos/100002i/dmodel)",
+          "source": "attention.pdf",
+          "page": 6,
+          "chunk_index": 2,
+          "distance": 0.49870890378952026
+        },
+        {
+          "id": "attention.pdf:5:4",
+          "text": "oder. Each position in the encoder can attend to all positions in the previous layer of the\nencoder.\n\u2022 Similarly, self-attention layers in the decoder allow each position in the decoder to attend to\nall positions in the decoder up to and including that position. We need to prevent leftward\ninformation flow in the decoder to preserve the auto-regressive property. We implement this\ninside of scaled dot-product attention by masking out (setting to \u2212\u221e) all values in the input",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 4,
+          "distance": 0.5032480955123901
+        },
+        {
+          "id": "attention.pdf:3:3",
+          "text": "tention over the output of the encoder stack. Similar to the encoder, we employ residual connections\naround each of the sub-layers, followed by layer normalization. We also modify the self-attention\nsub-layer in the decoder stack to prevent positions from attending to subsequent positions. This\nmasking, combined with fact that the output embeddings are offset by one position, ensures that the\npredictions for position i can depend only on the known outputs at positions less than i.\n3.2 Attention",
+          "source": "attention.pdf",
+          "page": 3,
+          "chunk_index": 3,
+          "distance": 0.5036554336547852
+        },
+        {
+          "id": "attention.pdf:6:1",
+          "text": "ention O(n2 \u00b7 d) O(1) O(1)\nRecurrent O(n \u00b7 d2) O(n) O(n)\nConvolutional O(k \u00b7 n \u00b7 d2) O(1) O(logk(n))\nSelf-Attention (restricted) O(r \u00b7 n \u00b7 d) O(1) O(n/r)\n3.5 Positional Encoding\nSince our model contains no recurrence and no convolution, in order for the model to make use of the\norder of the sequence, we must inject some information about the relative or absolute position of the\ntokens in the sequence. To this end, we add \"positional encodings\" to the input embeddings at the",
+          "source": "attention.pdf",
+          "page": 6,
+          "chunk_index": 1,
+          "distance": 0.5207560062408447
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "question": "How many attention heads does the base Transformer model use?",
+      "type": "factual",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "raw_retrieved": [
+        {
+          "id": "bert.pdf:3:7",
+          "text": " use\nof Transformers has become common and our im-\nplementation is almost identical to the original,\nwe will omit an exhaustive background descrip-\ntion of the model architecture and refer readers to\nVaswani et al. (2017) as well as excellent guides\nsuch as \u201cThe Annotated Transformer.\u201d2\nIn this work, we denote the number of layers\n(i.e., Transformer blocks) asL, the hidden size as\nH, and the number of self-attention heads as A.3\nWe primarily report results on two model sizes:",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 7,
+          "distance": 0.3171654939651489
+        },
+        {
+          "id": "attention.pdf:5:2",
+          "text": "that of single-head attention with full dimensionality.\n3.2.3 Applications of Attention in our Model\nThe Transformer uses multi-head attention in three different ways:\n\u2022 In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder. This allows every\nposition in the decoder to attend over all positions in the input sequence. This mimics the",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 2,
+          "distance": 0.33031487464904785
+        },
+        {
+          "id": "attention.pdf:3:0",
+          "text": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1 Encoder and Decoder Stacks\nEncoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-",
+          "source": "attention.pdf",
+          "page": 3,
+          "chunk_index": 0,
+          "distance": 0.3892762064933777
+        },
+        {
+          "id": "bert.pdf:8:9",
+          "text": "\nthe pre-training tasks. It is also perhaps surpris-\ning that we are able to achieve such signi\ufb01cant\nimprovements on top of models which are al-\nready quite large relative to the existing literature.\nFor example, the largest Transformer explored in\nVaswani et al. (2017) is (L=6, H=1024, A=16)\nwith 100M parameters for the encoder, and the\nlargest Transformer we have found in the literature\nis (L=64, H=512, A=2) with 235M parameters\n(Al-Rfou et al., 2018). By contrast, BERT BASE",
+          "source": "bert.pdf",
+          "page": 8,
+          "chunk_index": 9,
+          "distance": 0.46326273679733276
+        },
+        {
+          "id": "attention.pdf:2:7",
+          "text": "\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.",
+          "source": "attention.pdf",
+          "page": 2,
+          "chunk_index": 7,
+          "distance": 0.4682132601737976
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "question": "How many parameters does BERT-base have?",
+      "type": "factual",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.2
+      },
+      "raw_retrieved": [
+        {
+          "id": "rag.pdf:18:11",
+          "text": "ters\nOur RAG models contain the trainable parameters for the BERT-base query and document encoder of\nDPR, with 110M parameters each (although we do not train the document encoder ourselves) and\n406M trainable parameters from BART-large, 406M parameters, making a total of 626M trainable\n18",
+          "source": "rag.pdf",
+          "page": 18,
+          "chunk_index": 11,
+          "distance": 0.3314225673675537
+        },
+        {
+          "id": "bert.pdf:8:10",
+          "text": "literature\nis (L=64, H=512, A=2) with 235M parameters\n(Al-Rfou et al., 2018). By contrast, BERT BASE\ncontains 110M parameters and BERT LARGE con-\ntains 340M parameters.\nIt has long been known that increasing the\nmodel size will lead to continual improvements\non large-scale tasks such as machine translation\nand language modeling, which is demonstrated\nby the LM perplexity of held-out training data\nshown in Table 6. However, we believe that\nthis is the \ufb01rst work to demonstrate convinc-",
+          "source": "bert.pdf",
+          "page": 8,
+          "chunk_index": 10,
+          "distance": 0.3320764899253845
+        },
+        {
+          "id": "bert.pdf:16:6",
+          "text": " table,\nMASK means that we replace the target token with\nthe [MASK] symbol for MLM; S AME means that\nwe keep the target token as is; R ND means that\nwe replace the target token with another random\ntoken.\nThe numbers in the left part of the table repre-\nsent the probabilities of the speci\ufb01c strategies used\nduring MLM pre-training (BERT uses 80%, 10%,\n10%). The right part of the paper represents the\nDev set results. For the feature-based approach,\nwe concatenate the last 4 layers of BERT as the",
+          "source": "bert.pdf",
+          "page": 16,
+          "chunk_index": 6,
+          "distance": 0.38119059801101685
+        },
+        {
+          "id": "bert.pdf:8:9",
+          "text": "\nthe pre-training tasks. It is also perhaps surpris-\ning that we are able to achieve such signi\ufb01cant\nimprovements on top of models which are al-\nready quite large relative to the existing literature.\nFor example, the largest Transformer explored in\nVaswani et al. (2017) is (L=6, H=1024, A=16)\nwith 100M parameters for the encoder, and the\nlargest Transformer we have found in the literature\nis (L=64, H=512, A=2) with 235M parameters\n(Al-Rfou et al., 2018). By contrast, BERT BASE",
+          "source": "bert.pdf",
+          "page": 8,
+          "chunk_index": 9,
+          "distance": 0.4019932746887207
+        },
+        {
+          "id": "bert.pdf:3:5",
+          "text": "th\nthe pre-trained parameters, and all of the param-\neters are \ufb01ne-tuned using labeled data from the\ndownstream tasks. Each downstream task has sep-\narate \ufb01ne-tuned models, even though they are ini-\ntialized with the same pre-trained parameters. The\nquestion-answering example in Figure 1 will serve\nas a running example for this section.\nA distinctive feature of BERT is its uni\ufb01ed ar-\nchitecture across different tasks. There is mini-\nmal difference between the pre-trained architec-",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 5,
+          "distance": 0.4108012318611145
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "question": "What is the model dimension d_model used in the base Transformer?",
+      "type": "factual",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333333333333333,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:9:0",
+          "text": "Table 3: Variations on the Transformer architecture. Unlisted values are identical to those of the base\nmodel. All metrics are on the English-to-German translation development set, newstest2013. Listed\nperplexities are per-wordpiece, according to our byte-pair encoding, and should not be compared to\nper-word perplexities.\nN d model dff h d k dv Pdrop \u03f5ls\ntrain PPL BLEU params\nsteps (dev) (dev) \u00d7106\nbase 6 512 2048 8 64 64 0.1 0.1 100K 4.92 25.8 65\n(A)\n1 512 512 5.29 24.9\n4 128 128 5.00 25.5",
+          "source": "attention.pdf",
+          "page": 9,
+          "chunk_index": 0,
+          "distance": 0.46698081493377686
+        },
+        {
+          "id": "bert.pdf:3:7",
+          "text": " use\nof Transformers has become common and our im-\nplementation is almost identical to the original,\nwe will omit an exhaustive background descrip-\ntion of the model architecture and refer readers to\nVaswani et al. (2017) as well as excellent guides\nsuch as \u201cThe Annotated Transformer.\u201d2\nIn this work, we denote the number of layers\n(i.e., Transformer blocks) asL, the hidden size as\nH, and the number of self-attention heads as A.3\nWe primarily report results on two model sizes:",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 7,
+          "distance": 0.4772682189941406
+        },
+        {
+          "id": "bert.pdf:8:9",
+          "text": "\nthe pre-training tasks. It is also perhaps surpris-\ning that we are able to achieve such signi\ufb01cant\nimprovements on top of models which are al-\nready quite large relative to the existing literature.\nFor example, the largest Transformer explored in\nVaswani et al. (2017) is (L=6, H=1024, A=16)\nwith 100M parameters for the encoder, and the\nlargest Transformer we have found in the literature\nis (L=64, H=512, A=2) with 235M parameters\n(Al-Rfou et al., 2018). By contrast, BERT BASE",
+          "source": "bert.pdf",
+          "page": 8,
+          "chunk_index": 9,
+          "distance": 0.5417287945747375
+        },
+        {
+          "id": "attention.pdf:8:8",
+          "text": "ions\nTo evaluate the importance of different components of the Transformer, we varied our base model\nin different ways, measuring the change in performance on English-to-German translation on the\n5We used values of 2.8, 3.7, 6.0 and 9.5 TFLOPS for K80, K40, M40 and P100, respectively.\n8",
+          "source": "attention.pdf",
+          "page": 8,
+          "chunk_index": 8,
+          "distance": 0.5813414454460144
+        },
+        {
+          "id": "bert.pdf:3:6",
+          "text": "-\nchitecture across different tasks. There is mini-\nmal difference between the pre-trained architec-\nture and the \ufb01nal downstream architecture.\nModel Architecture BERT\u2019s model architec-\nture is a multi-layer bidirectional Transformer en-\ncoder based on the original implementation de-\nscribed in Vaswani et al. (2017) and released in\nthe tensor2tensor library.1 Because the use\nof Transformers has become common and our im-\nplementation is almost identical to the original,",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 6,
+          "distance": 0.5962115526199341
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "question": "How does BERT differ from previous left-to-right language models like GPT?",
+      "type": "comparative",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.8,
+        "recall_at_k": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "bert.pdf:13:0",
+          "text": "BERT (Ours)\nTrm Trm Trm\nTrm Trm Trm\n...\n...\nTrm Trm Trm\nTrm Trm Trm\n...\n...\nOpenAI GPT\nLstm\nELMo\nLstm Lstm\nLstm Lstm Lstm\nLstm Lstm Lstm\nLstm Lstm Lstm\n T1 T2  TN...\n...\n...\n...\n...\n E1 E2  EN...\n T1 T2 TN...\n E1 E2  EN...\n T1 T2  TN...\n E1 E2  EN...\nFigure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT\nuses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-",
+          "source": "bert.pdf",
+          "page": 13,
+          "chunk_index": 0,
+          "distance": 0.280867338180542
+        },
+        {
+          "id": "bert.pdf:14:2",
+          "text": "sed\napproach.\nThe most comparable existing pre-training\nmethod to BERT is OpenAI GPT, which trains a\nleft-to-right Transformer LM on a large text cor-\npus. In fact, many of the design decisions in BERT\nwere intentionally made to make it as close to\nGPT as possible so that the two methods could be\nminimally compared. The core argument of this\nwork is that the bi-directionality and the two pre-\ntraining tasks presented in Section 3.1 account for\nthe majority of the empirical improvements, but",
+          "source": "bert.pdf",
+          "page": 14,
+          "chunk_index": 2,
+          "distance": 0.2925047278404236
+        },
+        {
+          "id": "bert.pdf:14:3",
+          "text": "\ntraining tasks presented in Section 3.1 account for\nthe majority of the empirical improvements, but\nwe do note that there are several other differences\nbetween how BERT and GPT were trained:\n\u2022 GPT is trained on the BooksCorpus (800M\nwords); BERT is trained on the BooksCor-\npus (800M words) and Wikipedia (2,500M\nwords).\n\u2022 GPT uses a sentence separator ( [SEP]) and\nclassi\ufb01er token ( [CLS]) which are only in-\ntroduced at \ufb01ne-tuning time; BERT learns\n[SEP], [CLS] and sentence A/B embed-",
+          "source": "bert.pdf",
+          "page": 14,
+          "chunk_index": 3,
+          "distance": 0.31264960765838623
+        },
+        {
+          "id": "bert.pdf:14:1",
+          "text": " set.\nA.4 Comparison of BERT, ELMo ,and\nOpenAI GPT\nHere we studies the differences in recent popular\nrepresentation learning models including ELMo,\nOpenAI GPT and BERT. The comparisons be-\ntween the model architectures are shown visually\nin Figure 3. Note that in addition to the architec-\nture differences, BERT and OpenAI GPT are \ufb01ne-\ntuning approaches, while ELMo is a feature-based\napproach.\nThe most comparable existing pre-training\nmethod to BERT is OpenAI GPT, which trains a",
+          "source": "bert.pdf",
+          "page": 14,
+          "chunk_index": 1,
+          "distance": 0.3593173027038574
+        },
+        {
+          "id": "bert.pdf:4:4",
+          "text": "ht or\nright-to-left language models to pre-train BERT.\nInstead, we pre-train BERT using two unsuper-\nvised tasks, described in this section. This step\nis presented in the left part of Figure 1.\nTask #1: Masked LM Intuitively, it is reason-\nable to believe that a deep bidirectional model is\nstrictly more powerful than either a left-to-right\nmodel or the shallow concatenation of a left-to-\nright and a right-to-left model. Unfortunately,\nstandard conditional language models can only be",
+          "source": "bert.pdf",
+          "page": 4,
+          "chunk_index": 4,
+          "distance": 0.37934327125549316
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "question": "What is the difference between scaled dot-product attention and additive attention?",
+      "type": "comparative",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:4:0",
+          "text": "Scaled Dot-Product Attention\n Multi-Head Attention\nFigure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several\nattention layers running in parallel.\nof the values, where the weight assigned to each value is computed by a compatibility function of the\nquery with the corresponding key.\n3.2.1 Scaled Dot-Product Attention\nWe call our particular attention \"Scaled Dot-Product Attention\" (Figure 2). The input consists of",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 0,
+          "distance": 0.2743719220161438
+        },
+        {
+          "id": "attention.pdf:4:4",
+          "text": "e.\nWhile for small values of dk the two mechanisms perform similarly, additive attention outperforms\ndot product attention without scaling for larger values of dk [3]. We suspect that for large values of\ndk, the dot products grow large in magnitude, pushing the softmax function into regions where it has\nextremely small gradients 4. To counteract this effect, we scale the dot products by 1\u221adk\n.\n3.2.2 Multi-Head Attention",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 4,
+          "distance": 0.3227931261062622
+        },
+        {
+          "id": "attention.pdf:4:3",
+          "text": "r\nof 1\u221adk\n. Additive attention computes the compatibility function using a feed-forward network with\na single hidden layer. While the two are similar in theoretical complexity, dot-product attention is\nmuch faster and more space-efficient in practice, since it can be implemented using highly optimized\nmatrix multiplication code.\nWhile for small values of dk the two mechanisms perform similarly, additive attention outperforms",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 3,
+          "distance": 0.3441360592842102
+        },
+        {
+          "id": "attention.pdf:4:5",
+          "text": "adients 4. To counteract this effect, we scale the dot products by 1\u221adk\n.\n3.2.2 Multi-Head Attention\nInstead of performing a single attention function with dmodel-dimensional keys, values and queries,\nwe found it beneficial to linearly project the queries, keys and values h times with different, learned\nlinear projections to dk, dk and dv dimensions, respectively. On each of these projected versions of",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 5,
+          "distance": 0.36070317029953003
+        },
+        {
+          "id": "attention.pdf:4:1",
+          "text": "on\nWe call our particular attention \"Scaled Dot-Product Attention\" (Figure 2). The input consists of\nqueries and keys of dimension dk, and values of dimension dv. We compute the dot products of the\nquery with all keys, divide each by \u221adk, and apply a softmax function to obtain the weights on the\nvalues.\nIn practice, we compute the attention function on a set of queries simultaneously, packed together\ninto a matrix Q. The keys and values are also packed together into matrices K and V . We compute",
+          "source": "attention.pdf",
+          "page": 4,
+          "chunk_index": 1,
+          "distance": 0.3914031386375427
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "What pre-training objectives does BERT use, and what does each one optimize?",
+      "type": "multi_hop",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "bert.pdf:3:4",
+          "text": "is to \ufb01ne-tune models pre-trained with Ima-\ngeNet (Deng et al., 2009; Yosinski et al., 2014).\n3 BERT\nWe introduce BERT and its detailed implementa-\ntion in this section. There are two steps in our\nframework: pre-training and \ufb01ne-tuning. Dur-\ning pre-training, the model is trained on unlabeled\ndata over different pre-training tasks. For \ufb01ne-\ntuning, the BERT model is \ufb01rst initialized with\nthe pre-trained parameters, and all of the param-\neters are \ufb01ne-tuned using labeled data from the",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 4,
+          "distance": 0.2769436836242676
+        },
+        {
+          "id": "bert.pdf:3:5",
+          "text": "th\nthe pre-trained parameters, and all of the param-\neters are \ufb01ne-tuned using labeled data from the\ndownstream tasks. Each downstream task has sep-\narate \ufb01ne-tuned models, even though they are ini-\ntialized with the same pre-trained parameters. The\nquestion-answering example in Figure 1 will serve\nas a running example for this section.\nA distinctive feature of BERT is its uni\ufb01ed ar-\nchitecture across different tasks. There is mini-\nmal difference between the pre-trained architec-",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 5,
+          "distance": 0.29152214527130127
+        },
+        {
+          "id": "bert.pdf:14:4",
+          "text": "S]) which are only in-\ntroduced at \ufb01ne-tuning time; BERT learns\n[SEP], [CLS] and sentence A/B embed-\ndings during pre-training.\n\u2022 GPT was trained for 1M steps with a batch\nsize of 32,000 words; BERT was trained for\n1M steps with a batch size of 128,000 words.\n\u2022 GPT used the same learning rate of 5e-5 for\nall \ufb01ne-tuning experiments; BERT chooses a\ntask-speci\ufb01c \ufb01ne-tuning learning rate which\nperforms the best on the development set.\nTo isolate the effect of these differences, we per-",
+          "source": "bert.pdf",
+          "page": 14,
+          "chunk_index": 4,
+          "distance": 0.3238973021507263
+        },
+        {
+          "id": "bert.pdf:9:1",
+          "text": "en the\nmodel is \ufb01ne-tuned directly on the downstream\ntasks and uses only a very small number of ran-\ndomly initialized additional parameters, the task-\nspeci\ufb01c models can bene\ufb01t from the larger, more\nexpressive pre-trained representations even when\ndownstream task data is very small.\n5.3 Feature-based Approach with BERT\nAll of the BERT results presented so far have used\nthe \ufb01ne-tuning approach, where a simple classi\ufb01-\ncation layer is added to the pre-trained model, and",
+          "source": "bert.pdf",
+          "page": 9,
+          "chunk_index": 1,
+          "distance": 0.3252955675125122
+        },
+        {
+          "id": "bert.pdf:16:6",
+          "text": " table,\nMASK means that we replace the target token with\nthe [MASK] symbol for MLM; S AME means that\nwe keep the target token as is; R ND means that\nwe replace the target token with another random\ntoken.\nThe numbers in the left part of the table repre-\nsent the probabilities of the speci\ufb01c strategies used\nduring MLM pre-training (BERT uses 80%, 10%,\n10%). The right part of the paper represents the\nDev set results. For the feature-based approach,\nwe concatenate the last 4 layers of BERT as the",
+          "source": "bert.pdf",
+          "page": 16,
+          "chunk_index": 6,
+          "distance": 0.32614803314208984
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "What is the role of the encoder and decoder in the original Transformer architecture?",
+      "type": "multi_hop",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:3:0",
+          "text": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1 Encoder and Decoder Stacks\nEncoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-",
+          "source": "attention.pdf",
+          "page": 3,
+          "chunk_index": 0,
+          "distance": 0.3307455778121948
+        },
+        {
+          "id": "attention.pdf:5:2",
+          "text": "that of single-head attention with full dimensionality.\n3.2.3 Applications of Attention in our Model\nThe Transformer uses multi-head attention in three different ways:\n\u2022 In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder. This allows every\nposition in the decoder to attend over all positions in the input sequence. This mimics the",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 2,
+          "distance": 0.4017455577850342
+        },
+        {
+          "id": "attention.pdf:2:10",
+          "text": "[34].\nTo the best of our knowledge, however, the Transformer is the first transduction model relying\nentirely on self-attention to compute representations of its input and output without using sequence-\naligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate\nself-attention and discuss its advantages over models such as [17, 18] and [9].\n3 Model Architecture",
+          "source": "attention.pdf",
+          "page": 2,
+          "chunk_index": 10,
+          "distance": 0.4315009117126465
+        },
+        {
+          "id": "bert.pdf:3:6",
+          "text": "-\nchitecture across different tasks. There is mini-\nmal difference between the pre-trained architec-\nture and the \ufb01nal downstream architecture.\nModel Architecture BERT\u2019s model architec-\nture is a multi-layer bidirectional Transformer en-\ncoder based on the original implementation de-\nscribed in Vaswani et al. (2017) and released in\nthe tensor2tensor library.1 Because the use\nof Transformers has become common and our im-\nplementation is almost identical to the original,",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 6,
+          "distance": 0.450761616230011
+        },
+        {
+          "id": "bert.pdf:3:7",
+          "text": " use\nof Transformers has become common and our im-\nplementation is almost identical to the original,\nwe will omit an exhaustive background descrip-\ntion of the model architecture and refer readers to\nVaswani et al. (2017) as well as excellent guides\nsuch as \u201cThe Annotated Transformer.\u201d2\nIn this work, we denote the number of layers\n(i.e., Transformer blocks) asL, the hidden size as\nH, and the number of self-attention heads as A.3\nWe primarily report results on two model sizes:",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 7,
+          "distance": 0.4719241261482239
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "How is positional encoding computed in the Transformer?",
+      "type": "procedural",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "attention.pdf:3:0",
+          "text": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1 Encoder and Decoder Stacks\nEncoder: The encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-",
+          "source": "attention.pdf",
+          "page": 3,
+          "chunk_index": 0,
+          "distance": 0.41932445764541626
+        },
+        {
+          "id": "attention.pdf:5:2",
+          "text": "that of single-head attention with full dimensionality.\n3.2.3 Applications of Attention in our Model\nThe Transformer uses multi-head attention in three different ways:\n\u2022 In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder. This allows every\nposition in the decoder to attend over all positions in the input sequence. This mimics the",
+          "source": "attention.pdf",
+          "page": 5,
+          "chunk_index": 2,
+          "distance": 0.4241095781326294
+        },
+        {
+          "id": "attention.pdf:2:7",
+          "text": "\nin the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes\nit more difficult to learn dependencies between distant positions [ 12]. In the Transformer this is\nreduced to a constant number of operations, albeit at the cost of reduced effective resolution due\nto averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as\ndescribed in section 3.2.",
+          "source": "attention.pdf",
+          "page": 2,
+          "chunk_index": 7,
+          "distance": 0.47407567501068115
+        },
+        {
+          "id": "attention.pdf:9:4",
+          "text": "nction than dot product may be beneficial. We further observe in rows (C) and (D) that, as expected,\nbigger models are better, and dropout is very helpful in avoiding over-fitting. In row (E) we replace our\nsinusoidal positional encoding with learned positional embeddings [9], and observe nearly identical\nresults to the base model.\n6.3 English Constituency Parsing\nTo evaluate if the Transformer can generalize to other tasks we performed experiments on English",
+          "source": "attention.pdf",
+          "page": 9,
+          "chunk_index": 4,
+          "distance": 0.4842679500579834
+        },
+        {
+          "id": "bert.pdf:3:7",
+          "text": " use\nof Transformers has become common and our im-\nplementation is almost identical to the original,\nwe will omit an exhaustive background descrip-\ntion of the model architecture and refer readers to\nVaswani et al. (2017) as well as excellent guides\nsuch as \u201cThe Annotated Transformer.\u201d2\nIn this work, we denote the number of layers\n(i.e., Transformer blocks) asL, the hidden size as\nH, and the number of self-attention heads as A.3\nWe primarily report results on two model sizes:",
+          "source": "bert.pdf",
+          "page": 3,
+          "chunk_index": 7,
+          "distance": 0.4862774610519409
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "How does retrieval-augmented generation combine retrieval with generation at inference time?",
+      "type": "procedural",
+      "in_corpus": true,
+      "metrics": {
+        "precision_at_k": 0.8,
+        "recall_at_k": 0.6666666666666666,
+        "reciprocal_rank": 1.0
+      },
+      "raw_retrieved": [
+        {
+          "id": "rag.pdf:1:2",
+          "text": "eir performance\nlags behind task-speci\ufb01c architectures. Additionally, providing provenance for their\ndecisions and updating their world knowledge remain open research problems. Pre-\ntrained models with a differentiable access mechanism to explicit non-parametric\nmemory have so far been only investigated for extractive downstream tasks. We\nexplore a general-purpose \ufb01ne-tuning recipe for retrieval-augmented generation\n(RAG) \u2014 models which combine pre-trained parametric and non-parametric mem-",
+          "source": "rag.pdf",
+          "page": 1,
+          "chunk_index": 2,
+          "distance": 0.33436691761016846
+        },
+        {
+          "id": "rag.pdf:2:9",
+          "text": "g\nextractive tasks, we \ufb01nd that unconstrained generation outperforms previous extractive approaches.\nFor knowledge-intensive generation, we experiment with MS-MARCO [1] and Jeopardy question\ngeneration, and we \ufb01nd that our models generate responses that are more factual, speci\ufb01c, and\ndiverse than a BART baseline. For FEVER [56] fact veri\ufb01cation, we achieve results within 4.3% of\nstate-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that",
+          "source": "rag.pdf",
+          "page": 2,
+          "chunk_index": 9,
+          "distance": 0.3353217840194702
+        },
+        {
+          "id": "rag.pdf:1:0",
+          "text": "Retrieval-Augmented Generation for\nKnowledge-Intensive NLP Tasks\nPatrick Lewis\u2020\u2021, Ethan Perez\u22c6,\nAleksandra Piktus\u2020, Fabio Petroni\u2020, Vladimir Karpukhin\u2020, Naman Goyal\u2020, Heinrich K\u00fcttler\u2020,\nMike Lewis\u2020, Wen-tau Yih\u2020, Tim Rockt\u00e4schel\u2020\u2021, Sebastian Riedel\u2020\u2021, Douwe Kiela\u2020\n\u2020Facebook AI Research;\u2021University College London;\u22c6New York University;\nplewis@fb.com\nAbstract\nLarge pre-trained language models have been shown to store factual knowledge",
+          "source": "rag.pdf",
+          "page": 1,
+          "chunk_index": 0,
+          "distance": 0.3357619643211365
+        },
+        {
+          "id": "rag.pdf:9:8",
+          "text": "pieces of retrieved content, as well as learning latent retrieval, and retrieving evidence documents\nrather than related training pairs. This said, RAG techniques may work well in these settings, and\ncould represent promising future work.\n6 Discussion\nIn this work, we presented hybrid generation models with access to parametric and non-parametric\nmemory. We showed that our RAG models obtain state of the art results on open-domain QA. We",
+          "source": "rag.pdf",
+          "page": 9,
+          "chunk_index": 8,
+          "distance": 0.36369597911834717
+        },
+        {
+          "id": "rag.pdf:1:3",
+          "text": "val-augmented generation\n(RAG) \u2014 models which combine pre-trained parametric and non-parametric mem-\nory for language generation. We introduce RAG models where the parametric\nmemory is a pre-trained seq2seq model and the non-parametric memory is a dense\nvector index of Wikipedia, accessed with a pre-trained neural retriever. We com-\npare two RAG formulations, one which conditions on the same retrieved passages\nacross the whole generated sequence, and another which can use different passages",
+          "source": "rag.pdf",
+          "page": 1,
+          "chunk_index": 3,
+          "distance": 0.38181477785110474
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "type": "trap",
+      "in_corpus": false,
+      "refusal_correct": true,
+      "raw_retrieved": []
+    },
+    {
+      "id": "q15",
+      "question": "What is the recipe for traditional Polish bigos?",
+      "type": "trap",
+      "in_corpus": false,
+      "refusal_correct": true,
+      "raw_retrieved": []
+    },
+    {
+      "id": "q16",
+      "question": "What was the population of Tokyo in 2024?",
+      "type": "trap",
+      "in_corpus": false,
+      "refusal_correct": true,
+      "raw_retrieved": []
+    }
+  ],
+  "aggregate": {
+    "overall": {
+      "n": 13,
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.7051282051282051,
+      "mrr": 0.6692307692307692
+    },
+    "by_type": {
+      "comparative": {
+        "n": 2,
+        "precision_at_k": 0.9,
+        "recall_at_k": 0.8333333333333333,
+        "mrr": 1.0
+      },
+      "definitional": {
+        "n": 4,
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.875,
+        "mrr": 0.75
+      },
+      "factual": {
+        "n": 3,
+        "precision_at_k": 0.20000000000000004,
+        "recall_at_k": 0.7777777777777778,
+        "mrr": 0.5666666666666667
+      },
+      "multi_hop": {
+        "n": 2,
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.5,
+        "mrr": 0.5
+      },
+      "procedural": {
+        "n": 2,
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.3333333333333333,
+        "mrr": 0.5
+      }
+    },
+    "refusal": {
+      "n": 3,
+      "correct": 3,
+      "accuracy": 1.0
+    }
+  }
+}

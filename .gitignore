@@ -1,0 +1,44 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Vector database (regenerable via `python src/index.py`)
+chroma_db/
+
+# Eval results — ignore all timestamped runs, keep only canonical baselines
+eval/results/*
+!eval/results/baseline.json
+!eval/results/recursive.json
+!eval/results/recursive_clean.json
+!eval/results/baseline_reranked.json
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
